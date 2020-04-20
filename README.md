@@ -1,7 +1,7 @@
-TypeScript React "material-ui" Demo
+TypeScript React "material-ui" Dialog Demo
 ===================================
 
-如何使用TypeScript来写"material-ui"
+自定义一个包含title, body和footer的dialog
 
 ```
 npm install

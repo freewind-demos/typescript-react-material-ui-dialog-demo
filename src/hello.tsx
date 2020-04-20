@@ -1,33 +1,26 @@
-import React, {useState} from 'react'
+import {Typography} from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import React from 'react';
+import SimpleDialog from './SimpleDialog';
 
-import {List, ListItem, ListItemText, ListItemIcon, Collapse} from '@material-ui/core'
-import InboxIcon from '@material-ui/icons/Inbox'
-import {ExpandMore, ExpandLess} from '@material-ui/icons'
+export default function Hello() {
+  const [open, setOpen] = React.useState(false);
 
-export default function MyList() {
-  const [open, setOpen] = useState(false)
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-  return <div>
-    <List>
-      <ListItem button onClick={() => setOpen(!open)}>
-        <ListItemIcon>
-          <InboxIcon/>
-        </ListItemIcon>
-        <ListItemText primary='Hello'/>
-        {
-          open ? <ExpandLess/> : <ExpandMore/>
-        }
-      </ListItem>
-      <Collapse in={open}>
-        <List>
-          <ListItem>
-            <ListItemText primary='typescript'/>
-          </ListItem>
-          <ListItem>
-            <ListItemText primary='material-ui'/>
-          </ListItem>
-        </List>
-      </Collapse>
-    </List>
-  </div>
-}
+  return <>
+    <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      Open dialog
+    </Button>
+    <SimpleDialog open={open} onClose={handleClose} title={'hello dialog'}>
+      <Typography>
+        Hello body
+      </Typography>
+    </SimpleDialog>
+  </>
+};
