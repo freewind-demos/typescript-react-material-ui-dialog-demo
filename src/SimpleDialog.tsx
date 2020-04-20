@@ -63,7 +63,7 @@ export type SimpleDialogProps = {
   okText?: string,
   open: boolean,
   maxWidth?: DialogProps['maxWidth'],
-  onClose?: () => void
+  onClose: () => void
 }
 
 export default function SimpleDialog(
@@ -73,7 +73,7 @@ export default function SimpleDialog(
     children,
     okText,
     maxWidth = 'md',
-    onClose = () => undefined,
+    onClose,
   }: SimpleDialogProps
 ) {
   return (
